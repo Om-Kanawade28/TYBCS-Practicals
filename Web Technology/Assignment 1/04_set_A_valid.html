@@ -1,0 +1,26 @@
+<html>
+<head><title>validation</title></head>
+<body>
+<form action="04_set_A_valid.php" method="GET" onsubmit="return valid();">
+Enter the email:=<input type="text" name="email" id="email"  required><br>
+Enter the Name:=<input type="text" name="name" id="name" required><br>
+<input type="submit" name="submit" value="submit">
+</form>
+<script>
+function valid(){
+const email = document.getElementById('email').value.trim();
+const name = document.getElementById('name').value.trim();
+if(email === ""){
+alert("Email not empty");
+return false;
+}
+if(name === ""){
+alert("name not empty");
+return false;
+}
+return true;
+}
+</script>
+</body>
+</html>
+
