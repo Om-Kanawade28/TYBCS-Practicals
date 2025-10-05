@@ -1,0 +1,26 @@
+import java.io.*;
+
+public class CopyFile {
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Usage: java CopyFile <source> <destination>");
+            return;
+        }
+
+        String source = args[0];
+        String destination = args[1];
+
+        try (FileInputStream fin = new FileInputStream(source);
+             FileOutputStream fout = new FileOutputStream(destination)) {
+
+            int c;
+            while ((c = fin.read()) != -1) {
+                fout.write(c);
+            }
+
+            System.out.println("File copied successfully!");
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
